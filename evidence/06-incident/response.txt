@@ -1,0 +1,7 @@
+Cause: logs and traces show express delivery calculation used `replace(day=day + 2)`, producing invalid dates at month boundaries and HTTP 500.
+
+Fixed `app/main.py` to use `timedelta(days=2)`. Added regression tests in `tests/test_delivery.py`; five reproduced the failure before the fix.
+
+Full offline suite: **21 passed**, two dependency deprecation warnings. Used `UV_CACHE_DIR=.cache/uv`.
+
+No commit or deployment. Unrelated configuration changes appeared during the run; I left them untouched.

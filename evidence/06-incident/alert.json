@@ -1,0 +1,57 @@
+{
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "Order lookup server errors",
+        "grafana_folder": "Order Tracker",
+        "service": "order-tracker",
+        "severity": "critical"
+      },
+      "annotations": {
+        "dashboard_url": "http://localhost:3000/d/order-tracker",
+        "description": "At least one 5xx response in the last 2 minutes. Inspect correlated logs and traces.",
+        "endpoint": "GET /api/orders/{order_id}",
+        "summary": "Order lookup returned a server error",
+        "time_window": "2m"
+      },
+      "startsAt": "2026-10-05T18:05:00Z",
+      "endsAt": "0001-01-01T00:00:00Z",
+      "generatorURL": "http://localhost:3000/alerting/grafana/order-lookup-5xx/view?orgId=1",
+      "fingerprint": "e91ab7c4342d1dcc",
+      "silenceURL": "http://localhost:3000/alerting/silence/new?alertmanager=grafana&matcher=__alert_rule_uid__%3Dorder-lookup-5xx&matcher=service%3Dorder-tracker&matcher=severity%3Dcritical&orgId=1",
+      "dashboardURL": "http://localhost:3000/d/order-tracker?from=1791219900000&orgId=1&to=1791223538084",
+      "panelURL": "http://localhost:3000/d/order-tracker?from=1791219900000&orgId=1&to=1791223538084&viewPanel=2",
+      "values": {
+        "B0": 1.0273478260869564
+      },
+      "valueString": "[ var='B0' metric='Value' labels={} value=1.0273478260869564 ]"
+    }
+  ],
+  "receiver": "incident-responder",
+  "status": "firing",
+  "groupLabels": {
+    "alertname": "Order lookup server errors"
+  },
+  "commonLabels": {
+    "alertname": "Order lookup server errors",
+    "grafana_folder": "Order Tracker",
+    "service": "order-tracker",
+    "severity": "critical"
+  },
+  "commonAnnotations": {
+    "dashboard_url": "http://localhost:3000/d/order-tracker",
+    "description": "At least one 5xx response in the last 2 minutes. Inspect correlated logs and traces.",
+    "endpoint": "GET /api/orders/{order_id}",
+    "summary": "Order lookup returned a server error",
+    "time_window": "2m"
+  },
+  "externalURL": "http://localhost:3000/",
+  "version": "1",
+  "groupKey": "{}/{alertname=\"Order lookup server errors\",service=\"order-tracker\"}:{alertname=\"Order lookup server errors\"}",
+  "truncatedAlerts": 0,
+  "orgId": 1,
+  "title": "[FIRING:1] Order lookup server errors (Order Tracker order-tracker critical)",
+  "state": "alerting",
+  "message": "**Firing**\n\nValue: B0=1.0273478260869564\nLabels:\n - alertname = Order lookup server errors\n - grafana_folder = Order Tracker\n - service = order-tracker\n - severity = critical\nAnnotations:\n - dashboard_url = http://localhost:3000/d/order-tracker\n - description = At least one 5xx response in the last 2 minutes. Inspect correlated logs and traces.\n - endpoint = GET /api/orders/{order_id}\n - summary = Order lookup returned a server error\n - time_window = 2m\nSource: http://localhost:3000/alerting/grafana/order-lookup-5xx/view?orgId=1\nSilence: http://localhost:3000/alerting/silence/new?alertmanager=grafana&matcher=__alert_rule_uid__%3Dorder-lookup-5xx&matcher=service%3Dorder-tracker&matcher=severity%3Dcritical&orgId=1\nDashboard: http://localhost:3000/d/order-tracker?from=1791219900000&orgId=1&to=1791223538084\nPanel: http://localhost:3000/d/order-tracker?from=1791219900000&orgId=1&to=1791223538084&viewPanel=2\n"
+}

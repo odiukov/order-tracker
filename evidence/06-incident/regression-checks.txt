@@ -1,0 +1,198 @@
+/bin/zsh -lc 'rtk proxy env UV_CACHE_DIR=.cache/uv UV_OFFLINE=1 TELEMETRY_EXPORTER=none uv run --frozen pytest -q tests/test_delivery.py'
+FFFFF...                                                                 [100%]
+=================================== FAILURES ===================================
+___ test_express_lookup_delivery_date[2026-09-30T18:00:00+00:00-2026-10-02] ____
+
+client = <starlette.testclient.TestClient object at 0x10a302660>
+created_at = '2026-09-30T18:00:00+00:00', expected_delivery = '2026-10-02'
+
+    @pytest.mark.parametrize(
+        "created_at,expected_delivery",
+        [
+            ("2026-09-30T18:00:00+00:00", "2026-10-02"),
+            ("2026-01-30T18:00:00+00:00", "2026-02-01"),
+            ("2026-12-31T18:00:00+00:00", "2027-01-02"),
+            ("2026-02-28T18:00:00+00:00", "2026-03-02"),
+            ("2024-02-28T18:00:00+00:00", "2024-03-01"),
+            ("2024-02-27T18:00:00+00:00", "2024-02-29"),
+            ("2026-10-05T18:00:00+00:00", "2026-10-07"),
+        ],
+    )
+    def test_express_lookup_delivery_date(client, created_at, expected_delivery):
+        with main.connect() as db:
+            db.execute(
+                "UPDATE orders SET created_at = ? WHERE id = ?",
+                (created_at, "express-1002"),
+            )
+    
+        response = client.get("/api/orders/express-1002")
+    
+>       assert response.status_code == 200, response.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_delivery.py:36: AssertionError
+___ test_express_lookup_delivery_date[2026-01-30T18:00:00+00:00-2026-02-01] ____
+
+client = <starlette.testclient.TestClient object at 0x10a32e210>
+created_at = '2026-01-30T18:00:00+00:00', expected_delivery = '2026-02-01'
+
+    @pytest.mark.parametrize(
+        "created_at,expected_delivery",
+        [
+            ("2026-09-30T18:00:00+00:00", "2026-10-02"),
+            ("2026-01-30T18:00:00+00:00", "2026-02-01"),
+            ("2026-12-31T18:00:00+00:00", "2027-01-02"),
+            ("2026-02-28T18:00:00+00:00", "2026-03-02"),
+            ("2024-02-28T18:00:00+00:00", "2024-03-01"),
+            ("2024-02-27T18:00:00+00:00", "2024-02-29"),
+            ("2026-10-05T18:00:00+00:00", "2026-10-07"),
+        ],
+    )
+    def test_express_lookup_delivery_date(client, created_at, expected_delivery):
+        with main.connect() as db:
+            db.execute(
+                "UPDATE orders SET created_at = ? WHERE id = ?",
+                (created_at, "express-1002"),
+            )
+    
+        response = client.get("/api/orders/express-1002")
+    
+>       assert response.status_code == 200, response.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_delivery.py:36: AssertionError
+___ test_express_lookup_delivery_date[2026-12-31T18:00:00+00:00-2027-01-02] ____
+
+client = <starlette.testclient.TestClient object at 0x10a32fed0>
+created_at = '2026-12-31T18:00:00+00:00', expected_delivery = '2027-01-02'
+
+    @pytest.mark.parametrize(
+        "created_at,expected_delivery",
+        [
+            ("2026-09-30T18:00:00+00:00", "2026-10-02"),
+            ("2026-01-30T18:00:00+00:00", "2026-02-01"),
+            ("2026-12-31T18:00:00+00:00", "2027-01-02"),
+            ("2026-02-28T18:00:00+00:00", "2026-03-02"),
+            ("2024-02-28T18:00:00+00:00", "2024-03-01"),
+            ("2024-02-27T18:00:00+00:00", "2024-02-29"),
+            ("2026-10-05T18:00:00+00:00", "2026-10-07"),
+        ],
+    )
+    def test_express_lookup_delivery_date(client, created_at, expected_delivery):
+        with main.connect() as db:
+            db.execute(
+                "UPDATE orders SET created_at = ? WHERE id = ?",
+                (created_at, "express-1002"),
+            )
+    
+        response = client.get("/api/orders/express-1002")
+    
+>       assert response.status_code == 200, response.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_delivery.py:36: AssertionError
+___ test_express_lookup_delivery_date[2026-02-28T18:00:00+00:00-2026-03-02] ____
+
+client = <starlette.testclient.TestClient object at 0x10a32b100>
+created_at = '2026-02-28T18:00:00+00:00', expected_delivery = '2026-03-02'
+
+    @pytest.mark.parametrize(
+        "created_at,expected_delivery",
+        [
+            ("2026-09-30T18:00:00+00:00", "2026-10-02"),
+            ("2026-01-30T18:00:00+00:00", "2026-02-01"),
+            ("2026-12-31T18:00:00+00:00", "2027-01-02"),
+            ("2026-02-28T18:00:00+00:00", "2026-03-02"),
+            ("2024-02-28T18:00:00+00:00", "2024-03-01"),
+            ("2024-02-27T18:00:00+00:00", "2024-02-29"),
+            ("2026-10-05T18:00:00+00:00", "2026-10-07"),
+        ],
+    )
+    def test_express_lookup_delivery_date(client, created_at, expected_delivery):
+        with main.connect() as db:
+            db.execute(
+                "UPDATE orders SET created_at = ? WHERE id = ?",
+                (created_at, "express-1002"),
+            )
+    
+        response = client.get("/api/orders/express-1002")
+    
+>       assert response.status_code == 200, response.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_delivery.py:36: AssertionError
+___ test_express_lookup_delivery_date[2024-02-28T18:00:00+00:00-2024-03-01] ____
+
+client = <starlette.testclient.TestClient object at 0x10a32ac40>
+created_at = '2024-02-28T18:00:00+00:00', expected_delivery = '2024-03-01'
+
+    @pytest.mark.parametrize(
+        "created_at,expected_delivery",
+        [
+            ("2026-09-30T18:00:00+00:00", "2026-10-02"),
+            ("2026-01-30T18:00:00+00:00", "2026-02-01"),
+            ("2026-12-31T18:00:00+00:00", "2027-01-02"),
+            ("2026-02-28T18:00:00+00:00", "2026-03-02"),
+            ("2024-02-28T18:00:00+00:00", "2024-03-01"),
+            ("2024-02-27T18:00:00+00:00", "2024-02-29"),
+            ("2026-10-05T18:00:00+00:00", "2026-10-07"),
+        ],
+    )
+    def test_express_lookup_delivery_date(client, created_at, expected_delivery):
+        with main.connect() as db:
+            db.execute(
+                "UPDATE orders SET created_at = ? WHERE id = ?",
+                (created_at, "express-1002"),
+            )
+    
+        response = client.get("/api/orders/express-1002")
+    
+>       assert response.status_code == 200, response.text
+E       AssertionError: Internal Server Error
+E       assert 500 == 200
+E        +  where 500 = <Response [500 Internal Server Error]>.status_code
+
+tests/test_delivery.py:36: AssertionError
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /Users/oleksandr/orca/projects/AI Dev Tools Zoomcamp/order-tracker/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+.venv/lib/python3.13/site-packages/starlette/testclient.py:53
+  /Users/oleksandr/orca/projects/AI Dev Tools Zoomcamp/order-tracker/.venv/lib/python3.13/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED tests/test_delivery.py::test_express_lookup_delivery_date[2026-09-30T18:00:00+00:00-2026-10-02]
+FAILED tests/test_delivery.py::test_express_lookup_delivery_date[2026-01-30T18:00:00+00:00-2026-02-01]
+FAILED tests/test_delivery.py::test_express_lookup_delivery_date[2026-12-31T18:00:00+00:00-2027-01-02]
+FAILED tests/test_delivery.py::test_express_lookup_delivery_date[2026-02-28T18:00:00+00:00-2026-03-02]
+FAILED tests/test_delivery.py::test_express_lookup_delivery_date[2024-02-28T18:00:00+00:00-2024-03-01]
+5 failed, 3 passed, 2 warnings in 0.34s
+
+Exit code: 1
+
+/bin/zsh -lc 'rtk proxy env UV_CACHE_DIR=.cache/uv UV_OFFLINE=1 TELEMETRY_EXPORTER=none uv run --frozen pytest -q'
+.....................                                                    [100%]
+=============================== warnings summary ===============================
+.venv/lib/python3.13/site-packages/fastapi/testclient.py:1
+  /Users/oleksandr/orca/projects/AI Dev Tools Zoomcamp/order-tracker/.venv/lib/python3.13/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+.venv/lib/python3.13/site-packages/starlette/testclient.py:53
+  /Users/oleksandr/orca/projects/AI Dev Tools Zoomcamp/order-tracker/.venv/lib/python3.13/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+21 passed, 2 warnings in 0.35s
+
+Exit code: 0

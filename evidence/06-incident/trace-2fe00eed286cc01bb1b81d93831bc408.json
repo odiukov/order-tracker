@@ -1,0 +1,84 @@
+{
+  "batches": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "python"
+            }
+          },
+          {
+            "key": "telemetry.sdk.name",
+            "value": {
+              "stringValue": "opentelemetry"
+            }
+          },
+          {
+            "key": "telemetry.sdk.version",
+            "value": {
+              "stringValue": "1.45.0"
+            }
+          },
+          {
+            "key": "service.instance.id",
+            "value": {
+              "stringValue": "3f68cf5d-63f7-415c-b15a-585ecc4af147"
+            }
+          },
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "order-tracker"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "app.telemetry"
+          },
+          "spans": [
+            {
+              "traceId": "L+AO7ShswBuxuB2TgxvECA==",
+              "spanId": "DYXlyehjhwo=",
+              "name": "GET /api/orders/{order_id}",
+              "kind": "SPAN_KIND_SERVER",
+              "startTimeUnixNano": "1791223251894313211",
+              "endTimeUnixNano": "1791223251896246711",
+              "attributes": [
+                {
+                  "key": "http.route",
+                  "value": {
+                    "stringValue": "/api/orders/{order_id}"
+                  }
+                },
+                {
+                  "key": "http.request.method",
+                  "value": {
+                    "stringValue": "GET"
+                  }
+                },
+                {
+                  "key": "http.response.status_code",
+                  "value": {
+                    "intValue": "404"
+                  }
+                },
+                {
+                  "key": "url.path",
+                  "value": {
+                    "stringValue": "/api/orders/standard-1002"
+                  }
+                }
+              ],
+              "status": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
