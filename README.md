@@ -82,10 +82,10 @@ rate and logs. Expand a log row to follow its TraceID link into Tempo.
 To reproduce the console-export step:
 
 ```bash
-TELEMETRY_EXPORTER=console docker compose up -d --wait app
+TELEMETRY_EXPORTER=console docker compose up --build -d --wait app
 curl http://localhost:8000/api/orders/standard-1001
 docker compose logs app
-docker compose up -d --wait app   # switch back to OTLP
+docker compose up --build -d --wait app   # switch back to OTLP
 ```
 
 The exporter defaults to `none` outside Compose, keeping offline tests free of
