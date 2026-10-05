@@ -1,0 +1,308 @@
+{
+  "lookup": {
+    "status": 404,
+    "body": {
+      "detail": "Order not found"
+    },
+    "trace_id": "b00939dc7b9e9fd8f3df106cc899c77b"
+  },
+  "metric": {
+    "status": "success",
+    "data": {
+      "resultType": "vector",
+      "result": [
+        {
+          "metric": {
+            "__name__": "http_server_requests_total",
+            "exported_instance": "3f68cf5d-63f7-415c-b15a-585ecc4af147",
+            "exported_job": "order-tracker",
+            "http_request_method": "GET",
+            "http_response_status_code": "404",
+            "http_route": "/api/orders/{order_id}",
+            "instance": "collector:8889",
+            "job": "order-tracker",
+            "service_instance_id": "3f68cf5d-63f7-415c-b15a-585ecc4af147",
+            "service_name": "order-tracker",
+            "telemetry_sdk_language": "python",
+            "telemetry_sdk_name": "opentelemetry",
+            "telemetry_sdk_version": "1.45.0"
+          },
+          "value": [
+            1791223203.011,
+            "1"
+          ]
+        }
+      ]
+    }
+  },
+  "logs": {
+    "status": "success",
+    "data": {
+      "resultType": "streams",
+      "result": [
+        {
+          "stream": {
+            "detected_level": "info",
+            "flags": "3",
+            "http_request_method": "GET",
+            "http_response_status_code": "404",
+            "http_route": "/api/orders/{order_id}",
+            "scope_name": "app.telemetry",
+            "service_instance_id": "3f68cf5d-63f7-415c-b15a-585ecc4af147",
+            "service_name": "order-tracker",
+            "severity_number": "9",
+            "severity_text": "INFO",
+            "span_id": "a6ac0446a845e7ae",
+            "telemetry_sdk_language": "python",
+            "telemetry_sdk_name": "opentelemetry",
+            "telemetry_sdk_version": "1.45.0",
+            "trace_id": "b00939dc7b9e9fd8f3df106cc899c77b",
+            "url_path": "/api/orders/standard-1002"
+          },
+          "values": [
+            [
+              "1791223196934558130",
+              "Order lookup completed"
+            ]
+          ]
+        }
+      ],
+      "stats": {
+        "summary": {
+          "bytesProcessedPerSecond": 13910,
+          "linesProcessedPerSecond": 103,
+          "totalBytesProcessed": 134,
+          "totalLinesProcessed": 1,
+          "execTime": 0.009633,
+          "queueTime": 0.000681,
+          "subqueries": 0,
+          "totalEntriesReturned": 1,
+          "splits": 2,
+          "shards": 2,
+          "totalPostFilterLines": 1,
+          "totalStructuredMetadataBytesProcessed": 112
+        },
+        "querier": {
+          "store": {
+            "totalChunksRef": 0,
+            "totalChunksDownloaded": 0,
+            "chunksDownloadTime": 0,
+            "queryReferencedStructuredMetadata": false,
+            "chunk": {
+              "headChunkBytes": 0,
+              "headChunkLines": 0,
+              "decompressedBytes": 0,
+              "decompressedLines": 0,
+              "compressedBytes": 0,
+              "totalDuplicates": 0,
+              "postFilterLines": 0,
+              "headChunkStructuredMetadataBytes": 0,
+              "decompressedStructuredMetadataBytes": 0
+            },
+            "chunkRefsFetchTime": 0,
+            "congestionControlLatency": 0,
+            "pipelineWrapperFilteredLines": 0
+          }
+        },
+        "ingester": {
+          "totalReached": 2,
+          "totalChunksMatched": 1,
+          "totalBatches": 3,
+          "totalLinesSent": 1,
+          "store": {
+            "totalChunksRef": 0,
+            "totalChunksDownloaded": 0,
+            "chunksDownloadTime": 0,
+            "queryReferencedStructuredMetadata": true,
+            "chunk": {
+              "headChunkBytes": 134,
+              "headChunkLines": 1,
+              "decompressedBytes": 0,
+              "decompressedLines": 0,
+              "compressedBytes": 0,
+              "totalDuplicates": 0,
+              "postFilterLines": 1,
+              "headChunkStructuredMetadataBytes": 112,
+              "decompressedStructuredMetadataBytes": 0
+            },
+            "chunkRefsFetchTime": 270792,
+            "congestionControlLatency": 0,
+            "pipelineWrapperFilteredLines": 0
+          }
+        },
+        "cache": {
+          "chunk": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "index": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "result": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "statsResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "volumeResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "seriesResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "labelResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          },
+          "instantMetricResult": {
+            "entriesFound": 0,
+            "entriesRequested": 0,
+            "entriesStored": 0,
+            "bytesReceived": 0,
+            "bytesSent": 0,
+            "requests": 0,
+            "downloadTime": 0,
+            "queryLengthServed": 0
+          }
+        },
+        "index": {
+          "totalChunks": 0,
+          "postFilterChunks": 0,
+          "shardsDuration": 0,
+          "usedBloomFilters": false
+        }
+      }
+    }
+  },
+  "trace": {
+    "batches": [
+      {
+        "resource": {
+          "attributes": [
+            {
+              "key": "telemetry.sdk.language",
+              "value": {
+                "stringValue": "python"
+              }
+            },
+            {
+              "key": "telemetry.sdk.name",
+              "value": {
+                "stringValue": "opentelemetry"
+              }
+            },
+            {
+              "key": "telemetry.sdk.version",
+              "value": {
+                "stringValue": "1.45.0"
+              }
+            },
+            {
+              "key": "service.instance.id",
+              "value": {
+                "stringValue": "3f68cf5d-63f7-415c-b15a-585ecc4af147"
+              }
+            },
+            {
+              "key": "service.name",
+              "value": {
+                "stringValue": "order-tracker"
+              }
+            }
+          ]
+        },
+        "scopeSpans": [
+          {
+            "scope": {
+              "name": "app.telemetry"
+            },
+            "spans": [
+              {
+                "traceId": "sAk53Huen9jz3xBsyJnHew==",
+                "spanId": "pqwERqhF564=",
+                "name": "GET /api/orders/{order_id}",
+                "kind": "SPAN_KIND_SERVER",
+                "startTimeUnixNano": "1791223196928844964",
+                "endTimeUnixNano": "1791223196934661005",
+                "attributes": [
+                  {
+                    "key": "http.route",
+                    "value": {
+                      "stringValue": "/api/orders/{order_id}"
+                    }
+                  },
+                  {
+                    "key": "http.request.method",
+                    "value": {
+                      "stringValue": "GET"
+                    }
+                  },
+                  {
+                    "key": "http.response.status_code",
+                    "value": {
+                      "intValue": "404"
+                    }
+                  },
+                  {
+                    "key": "url.path",
+                    "value": {
+                      "stringValue": "/api/orders/standard-1002"
+                    }
+                  }
+                ],
+                "status": {}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
