@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+date: Mon, 05 Oct 2026 17:56:53 GMT
+server: uvicorn
+content-length: 149
+content-type: application/json
+x-trace-id: 7de0a8a1b6ccfd71b07487d2cffa3bc5
+
+{"id":"standard-1001","customer":"Avery","item":"Notebook","priority":"standard","status":"received","created_at":"2026-10-05T17:54:35.249171+00:00"}

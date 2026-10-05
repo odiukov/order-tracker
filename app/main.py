@@ -9,6 +9,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
+from app.telemetry import LookupTelemetry, make_telemetry
+
 
 DB_PATH = Path(os.getenv("ORDER_DB_PATH", "data/orders.db"))
 STATUSES = {"received", "preparing", "shipped", "delivered"}
@@ -73,10 +75,16 @@ class StatusUpdate(BaseModel):
 @asynccontextmanager
 async def lifespan(_app: FastAPI):
     init_db()
-    yield
+    _app.state.telemetry = make_telemetry()
+    try:
+        yield
+    finally:
+        if _app.state.telemetry:
+            _app.state.telemetry.shutdown()
 
 
 app = FastAPI(title="Order Tracker", lifespan=lifespan)
+app.add_middleware(LookupTelemetry)
 
 
 @app.get("/")
