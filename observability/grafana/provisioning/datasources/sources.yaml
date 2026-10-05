@@ -17,6 +17,7 @@ datasources:
     access: proxy
     url: http://loki:3100
     jsonData:
+      manageAlerts: false
       derivedFields:
         - name: TraceID
           matcherType: label

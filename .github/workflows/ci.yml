@@ -1,0 +1,40 @@
+name: Tests and Compose checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.8.22'
+          python-version: '3.12'
+      - run: uv sync --frozen
+      - run: uv run --frozen pytest -q
+
+  compose:
+    needs: test
+    runs-on: ubuntu-latest
+    env:
+      ORDER_TRACKER_TAG: ci-${{ github.sha }}-${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.8.22'
+          python-version: '3.12'
+      - run: uv sync --frozen
+      - run: docker compose up --build -d --wait
+      - run: uv run --frozen python scripts/check_app.py
+      - run: uv run --frozen python scripts/check_stack.py
+      - if: failure()
+        run: docker compose logs --tail 100
+      - if: always()
+        run: docker compose down

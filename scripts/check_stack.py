@@ -53,8 +53,8 @@ def main():
 
         evidence = {"lookup": {"status": response.status_code, "body": response.json(), "trace_id": trace_id},
                     "metric": eventually(metric), "logs": eventually(logs), "trace": eventually(trace)}
-        target = Path("evidence/03-grafana-signals.json")
-        target.parent.mkdir(exist_ok=True)
+        target = Path(os.getenv("EVIDENCE_PATH", ".runtime/stack-check.json"))
+        target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(json.dumps(evidence, indent=2) + "\n")
         print(f"Grafana: status=404, metric present, correlated log and trace {trace_id} present")
         print(f"Evidence: {target}")

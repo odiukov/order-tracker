@@ -1,0 +1,8 @@
+{
+  "health": "ok",
+  "standard": 200,
+  "missing": 404,
+  "express": 200,
+  "express_checks": 10,
+  "estimated_delivery": "2026-10-02"
+}

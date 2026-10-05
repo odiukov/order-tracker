@@ -274,8 +274,8 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "fastapi", specifier = ">=0.115,<1" },
-    { name = "opentelemetry-exporter-otlp-proto-http", specifier = ">=1.38,<2" },
-    { name = "opentelemetry-sdk", specifier = ">=1.38,<2" },
+    { name = "opentelemetry-exporter-otlp-proto-http", specifier = ">=1.39,<2" },
+    { name = "opentelemetry-sdk", specifier = ">=1.39,<2" },
     { name = "uvicorn", specifier = ">=0.30,<1" },
 ]
 

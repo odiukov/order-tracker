@@ -1,0 +1,75 @@
+{
+  "status": "success",
+  "data": {
+    "groups": [
+      {
+        "name": "Order lookups",
+        "file": "Order Tracker",
+        "folderUid": "eg0c10c83dbswa",
+        "rules": [
+          {
+            "state": "inactive",
+            "name": "Order lookup server errors",
+            "query": "sum(increase(http_server_requests_total{service_name=\"order-tracker\",http_route=\"/api/orders/{order_id}\",http_response_status_code=~\"5..\"}[2m])) or vector(0)",
+            "annotations": {
+              "__dashboardUid__": "order-tracker",
+              "__panelId__": "2",
+              "dashboard_url": "http://localhost:3000/d/order-tracker",
+              "description": "At least one 5xx response in the last 2 minutes. Inspect correlated logs and traces.",
+              "endpoint": "GET /api/orders/{order_id}",
+              "summary": "Order lookup returned a server error",
+              "time_window": "2m"
+            },
+            "alerts": [
+              {
+                "labels": {
+                  "alertname": "Order lookup server errors",
+                  "grafana_folder": "Order Tracker",
+                  "service": "order-tracker",
+                  "severity": "critical"
+                },
+                "annotations": {
+                  "__dashboardUid__": "order-tracker",
+                  "__panelId__": "2",
+                  "dashboard_url": "http://localhost:3000/d/order-tracker",
+                  "description": "At least one 5xx response in the last 2 minutes. Inspect correlated logs and traces.",
+                  "endpoint": "GET /api/orders/{order_id}",
+                  "summary": "Order lookup returned a server error",
+                  "time_window": "2m"
+                },
+                "state": "Normal",
+                "activeAt": "2026-10-05T18:07:00Z",
+                "value": ""
+              }
+            ],
+            "totals": {
+              "normal": 1
+            },
+            "totalsFiltered": {
+              "normal": 1
+            },
+            "uid": "order-lookup-5xx",
+            "folderUid": "eg0c10c83dbswa",
+            "labels": {
+              "service": "order-tracker",
+              "severity": "critical"
+            },
+            "health": "ok",
+            "type": "alerting",
+            "lastEvaluation": "2026-10-05T18:07:40Z",
+            "evaluationTime": 0.013972636
+          }
+        ],
+        "totals": {
+          "inactive": 1
+        },
+        "interval": 10,
+        "lastEvaluation": "2026-10-05T18:07:40Z",
+        "evaluationTime": 0.013972636
+      }
+    ],
+    "totals": {
+      "inactive": 1
+    }
+  }
+}
